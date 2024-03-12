@@ -11,7 +11,7 @@ To spin up the project locally, follow these steps:
 1. First clone the repo
 1. Then `cd YOUR_PROJECT_REPO && cp .env.example .env`
 1. Next `yarn && yarn dev` (or `docker-compose up`, see [Docker](#docker))
-1. Now `open http://localhost:3000/admin` to access the admin panel
+1. Now `open http://localhost:4000/admin` to access the admin panel
 1. Create your first admin user using the form on the page
 
 That's it! Changes made in `./src` will be reflected in your app.
@@ -36,6 +36,11 @@ To run Payload in production, you need to build and serve the Admin panel. To do
 ### Deployment
 
 The easiest way to deploy your project is to use [Payload Cloud](https://payloadcms.com/new/import), a one-click hosting solution to deploy production-ready instances of your Payload apps directly from your GitHub repo. You can also deploy your app manually, check out the [deployment documentation](https://payloadcms.com/docs/production/deployment) for full details.
+
+## Payload Secret
+
+The Payload scret is used to encrypt the JWT token. It is set up as follows:
+PAYLOAD_SECRET=a4s8as4tgreg489sdf156s8dfq4481
 
 ## Questions
 
