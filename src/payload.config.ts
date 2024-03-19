@@ -6,19 +6,20 @@ import { webpackBundler } from '@payloadcms/bundler-webpack';
 import { slateEditor } from '@payloadcms/richtext-slate';
 import { buildConfig } from 'payload/config';
 
-import Users from './collections/Users';
-import { Page } from './collections/Page';
-import { Media } from './collections/Media';
+import users from './collections/users';
+import { page } from './collections/page';
+import { media } from './collections/media';
+import { blogPost } from './collections/content/blogPost';
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_SERVER_URL,
   cors: ['http://localhost:3000'],
   admin: {
-    user: Users.slug,
+    user: users.slug,
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  collections: [Users, Page, Media],
+  collections: [users, page, media, blogPost],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },

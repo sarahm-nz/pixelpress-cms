@@ -1,4 +1,6 @@
-export const Media = {
+import { CollectionConfig } from 'payload/types';
+
+export const media: CollectionConfig = {
   slug: 'media',
   labels: {
     singular: 'Media',

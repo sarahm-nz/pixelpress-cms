@@ -6,14 +6,13 @@ export const pageFormat: Field = {
   type: 'select',
   required: true,
   hasMany: false,
-  defaultValue: 'standard',
   options: [
     {
-      label: 'About',
+      label: 'About Layout',
       value: 'about-layout',
     },
     {
-      label: 'Contact',
+      label: 'Contact Layout',
       value: 'contact-layout',
     },
   ],

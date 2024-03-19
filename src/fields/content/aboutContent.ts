@@ -2,7 +2,7 @@ import { Field } from 'payload/types';
 
 export const aboutContent: Field = {
   name: 'aboutPageContent',
-  label: 'Page content',
+  label: 'Page Content',
   type: 'group',
   admin: {
     condition: (data) => {
@@ -11,19 +11,22 @@ export const aboutContent: Field = {
   },
   fields: [
     {
-      name: 'aboutUsTitle',
+      name: 'aboutTitle',
+      label: 'About Title',
       type: 'text',
-      required: false,
-    },
-    {
-      name: 'aboutUsImage',
-      type: 'upload',
-      relationTo: 'media',
       required: true,
     },
     {
-      name: 'aboutUsContent',
+      name: 'aboutContent',
+      label: 'About Content',
       type: 'richText',
+      required: true,
+    },
+    {
+      name: 'aboutImage',
+      label: 'About Image',
+      type: 'upload',
+      relationTo: 'media',
       required: true,
     },
   ],

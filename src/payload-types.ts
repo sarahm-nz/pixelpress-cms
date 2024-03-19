@@ -11,6 +11,7 @@ export interface Config {
     users: User;
     pages: Page;
     media: Media;
+    'blog-posts': BlogPost;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -40,28 +41,31 @@ export interface User {
 export interface Page {
   id: string;
   title: string;
-  slug: string;
   content: {
     [k: string]: unknown;
   }[];
+  pageFormat: 'about-layout' | 'contact-layout';
   aboutPageContent?: {
-    aboutUsTitle?: string | null;
-    aboutUsImage: string | Media;
-    aboutUsContent: {
+    aboutTitle: string;
+    aboutContent: {
       [k: string]: unknown;
     }[];
+    aboutImage: string | Media;
   };
   contactPageContent?: {
-    contactTitle?: string | null;
-    backgroundImage: string | Media;
-    contactAddress: {
+    contactTitle: string;
+    contactContent: {
       [k: string]: unknown;
     }[];
-    contactMobile: string;
-    contactEmail: string;
+    contactImage: string | Media;
   };
+  seoTitle: string;
+  seoDescription: string;
+  seoScript?: string | null;
+  isPreventSeo?: boolean | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -96,6 +100,23 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-posts".
+ */
+export interface BlogPost {
+  id: string;
+  lastChangedBy?: (string | null) | User;
+  publishDate?: string | null;
+  blogTitle: string;
+  blogContent: {
+    [k: string]: unknown;
+  }[];
+  author: string | User;
+  backgroundImage: string | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
